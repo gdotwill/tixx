@@ -2,7 +2,9 @@ import React from 'react';
 
 import { BiCart } from 'react-icons/bi';
 
-import NavLinks from './styled'
+import NavLinks from './styled';
+
+import { Link } from 'react-router-dom';
 
 const Nav = props => {
     let content = (
@@ -10,7 +12,9 @@ const Nav = props => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4 text-left">
-                        <img alt="logo" class="logo" src="../../images/tixxly_logo.png" />
+                        <Link to="/">
+                            <img alt="logo" class="logo" src="../../images/tixxly_logo.png" />
+                        </Link>  
                     </div>
                     <div className="col-md-5 text-right">
                         <ul>

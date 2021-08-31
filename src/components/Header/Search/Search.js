@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 
 import { BiSearch } from 'react-icons/bi';
 
-import SearchBar from './styled'
+import SearchBar from './styled';
+
+import { Link } from 'react-router-dom';
 
 const Search = props => {
 
@@ -143,9 +145,11 @@ const Search = props => {
                     </div>
                     <div className="col-md-1">
                         <label>&nbsp;</label>
-                        <button>
-                            <BiSearch style={{ color: '#fff', width: '25px', height: '25px'}} />
-                        </button>
+                        <Link to="/search-results">
+                            <button>
+                                <BiSearch style={{ color: '#fff', width: '25px', height: '25px'}} />
+                            </button>
+                        </Link>  
                     </div>
                 </div>
             </div>
