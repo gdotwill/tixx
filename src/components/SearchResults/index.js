@@ -8,17 +8,17 @@ import SearchResults from './SearchResults';
 
 import Footer from '../Footer';
 
-const SearchResultsComponent = props => {   
-    let content = (
+const SearchResultsComponent = (adults) => {   
+    return (
         <>
-            <Nav />
+            <Nav 
+                adults={adults}
+            />
             <Search />
             <SearchResults />
             <Footer />  
         </>
     );
-
-    return content;
 }
 
 export default SearchResultsComponent

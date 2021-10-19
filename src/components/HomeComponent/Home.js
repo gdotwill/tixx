@@ -5,7 +5,7 @@ import Banner from './styled/banner';
 import Featured from './styled/featured';
 
 const Home = props => {   
-    let content = (
+    return (
         <>
             <Banner className="mb-5">
                 <div className="container">
@@ -190,7 +190,6 @@ const Home = props => {
         </>
     );
 
-    return content;
 }
 
 export default Home

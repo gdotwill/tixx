@@ -30,6 +30,17 @@ const component = styled.div.attrs({ className: 'footer' })`
         height: 50px;
         width: 150px;
         margin-left: 10px;
+
+        :disabled {
+            background: #666;
+            border: 1px solid #666;
+            cursor: no-drop;
+        }
+    }
+
+    .link ul li {
+        color: #000;
+        list-style-type: none;
     }
  
 `;

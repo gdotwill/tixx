@@ -1,9 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import FooterWrapper from './styled/footer';
 
-const Footer = props => {
-    let content =  (
+import Links from './styled/links';
+
+import { Link } from 'react-router-dom';
+
+import Button from 'react-bootstrap/Button';
+
+import Modal from 'react-bootstrap/Modal';
+
+const Footer = () => {
+    const reg = /^(?!.*\.{2})([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+    const [email, setEmail] = useState('');
+
+    const [validated, setValidated] = useState(true);
+
+    const handleSignUp = (e) => {
+        const email = e.target.value;
+        setEmail(email);
+        setValidated(email === '' || !reg.test(email));
+    }
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => {
+        setShow(false);
+        setEmail('');
+        setValidated(true)
+    }
+    const handleShow = () => setShow(true);
+
+    return  (
         <>
             <FooterWrapper className="pt-5">
                 <div className="container">
@@ -15,8 +44,25 @@ const Footer = props => {
                             <input 
                                 type="text"
                                 placeholder="Please Enter Your Email Address"
+                                onChange={handleSignUp}
+                                value={email}
                             />
-                            <button>Sign Up</button>
+                            <button
+                             disabled={validated}
+                             onClick={handleShow}
+                            >
+                                Sign Up
+                            </button>
+                            
+
+                            <Modal show={show} onHide={handleClose}>
+                                <Modal.Body> Thank you for subscribing !</Modal.Body>
+                                <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                                </Modal.Footer>
+                            </Modal>
                         </div>
                     </div>
                     <div className="row mt-5">
@@ -29,41 +75,85 @@ const Footer = props => {
                     </div>
                 </div>
             </FooterWrapper>
-            <div className="container mt-5 mt-5 pb-5">
-                <div className="row">
-                    <div className="col-md-5">
-                        <p><strong>Popular Destinations</strong></p>
-                        <p>lorem</p>
-                    </div>
-                    <div className="col-md-3">
-                        <p><strong>Popular Experiences</strong></p>
-                        <p>Lorem</p>
-                    </div>
-                    <div className="col-md-2">
-                        <p><strong>Company</strong></p>
-                        <ul style={{ marginLeft: "-35px" }}>
-                            <li li style={{ listStyleType: "none" }}>About Us</li>
-                            <li li style={{ listStyleType: "none" }}>Careers</li>
-                            <li li style={{ listStyleType: "none" }}>Blog</li>
-                            <li li style={{ listStyleType: "none" }}>Press</li>
-                            <li li style={{ listStyleType: "none" }}>Gift Cards</li>
-                        </ul>
-                    </div> 
-                    <div className="col-md-2">
-                        <p><strong>Support</strong></p>
-                        <ul style={{ marginLeft: "-35px" }}>
-                            <li li style={{ listStyleType: "none" }}>Contact</li>
-                            <li li style={{ listStyleType: "none" }}>Legal</li>
-                            <li li style={{ listStyleType: "none" }}>Privacy Policy</li>
-                            <li li style={{ listStyleType: "none" }}>Terms of Use</li>
-                            <li li style={{ listStyleType: "none" }}>Sitemap</li>
-                        </ul>
+
+            <Links>
+                <div className="container links mt-5 mt-5 pb-5">
+                    <div className="row">
+                        <div className="col-md-5">
+                            <p><strong>Popular Destinations</strong></p>
+                            <p>lorem</p>
+                        </div>
+                        <div className="col-md-3">
+                            <p><strong>Popular Experiences</strong></p>
+                            <p>Lorem</p>
+                        </div>
+                        <div className="col-md-2">
+                            <p><strong>Company</strong></p>
+                            <ul>
+                                <li>
+                                    <Link to="about-us">
+                                        About Us
+                                    </Link>  
+                                </li>
+                                <li>
+                                    <Link to="careers">
+                                        Careers
+                                    </Link>  
+                                </li>
+                                <li>
+                                    <Link to="blog">
+                                        Blog
+                                    </Link>  
+                                </li>
+                                <li>
+                                    <Link to="press">
+                                        Press
+                                    </Link>  
+                                </li>
+                                <li>
+                                    <Link to="gift-cards">
+                                        Gift Cards
+                                    </Link>  
+                                </li>
+                            </ul>
+                        </div> 
+                        <div className="col-md-2">
+                            <p><strong>Support</strong></p>
+                            <ul>
+                                <li>
+                                    <Link to="contact">
+                                        Contact
+                                    </Link>  
+                                </li>
+                                <li>
+                                    <Link to="legal">
+                                        Legal
+                                    </Link>  
+                                </li>
+                                <li>
+                                    <Link to="privacy">
+                                        Privacy Policy
+                                    </Link>  
+                                </li>
+                                <li>
+                                    <Link to="terms">
+                                        Terms of Use
+                                    </Link>  
+                                </li>
+                                <li>
+                                    <Link to="sitemap">
+                                        Sitemap
+                                    </Link>  
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Links>
+
+            
         </>   
     );
-    return content ; 
 }
 
 export default Footer

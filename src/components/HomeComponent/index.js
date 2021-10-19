@@ -9,7 +9,7 @@ import Home from './Home';
 import Footer from '../Footer';
 
 const HomeComponent = props => {   
-    let content = (
+    return (
         <>
             <Nav />
             <Search />
@@ -17,8 +17,6 @@ const HomeComponent = props => {
             <Footer />  
         </>
     );
-
-    return content;
 }
 
 export default HomeComponent

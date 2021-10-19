@@ -19,14 +19,14 @@ const component = styled.div.attrs({ className: 'buttons' })`
         }
     }
 
-    .active {
+    #active {
         border: 3px solid #33404D;
         border-radius: 5px;
         padding-top: 5px;
         padding-bottom: 5px;
     }
 
-    .inActive {
+    #inActive {
         border: 3px solid #EBEBEB;
         border-radius: 5px;
         padding-top: 5px;

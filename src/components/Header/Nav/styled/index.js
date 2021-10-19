@@ -9,14 +9,20 @@ const component = styled.div.attrs({ className: 'nav-link' })`
         margin-left: 5px;
     }
 
+    a {
+        color: #fff;
+    }
+
     ul {
         list-style-type: none;
         color: white;
         margin-top: 10px;
 
         li {
+            color: #fff;
             float: right;
-            margin-left: 20px   
+            margin-left: 20px ;
+            text-decoration: none;  
         }
 
         :hover {

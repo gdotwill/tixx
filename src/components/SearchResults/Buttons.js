@@ -1,14 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ButtonsWrapper from './styled/buttons';
 
-const Button = props => {    
-    let content = (
+const Button = props => { 
+    
+    const [state, setState] = useState({
+        lite: true,
+        medium: false,
+        heavy: false,
+    });
+
+    const handleLite = () => {
+        setState({
+            lite: true,
+            medium: false,
+            heavy: false
+        })  
+    }
+
+    const handleMedium = () => {
+        setState({
+            lite: false,
+            medium: true,
+            heavy: false
+        })   
+    }
+
+    const handleHeavy = () => {
+        setState({
+            lite: false,
+            medium: false,
+            heavy: true
+        })   
+    }
+
+    return (
         <ButtonsWrapper>
             <div className="row buttons">
-                <div className="col-md-4 button active">lite</div>
-                <div className="col-md-4 button inActive">medium</div>
-                <div className="col-md-4 button inActive">heavy</div>
+                <div 
+                    className="col-md-4 button"
+                    id={state.lite ? 'active' : 'inActive'}
+                    onClick={handleLite}
+                >
+                    lite
+                </div>
+
+                <div 
+                    className="col-md-4 button"
+                    id={state.medium ? 'active' : 'inActive'}
+                    onClick={handleMedium}
+                >
+                        medium
+                </div>
+
+                <div 
+                    className="col-md-4 button"
+                    id={state.heavy ? 'active' : 'inActive'}
+                    onClick={handleHeavy}
+                >   
+                    heavy
+                </div>
             </div>
             <div className="row mt-3">
                 <div className="col-md-6 pad-0">
@@ -20,7 +71,6 @@ const Button = props => {
             </div>
         </ButtonsWrapper>
     )
-    return content;   
 }
 
 export default Button

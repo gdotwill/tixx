@@ -4,17 +4,16 @@ import Filter from './Filter';
 import Results from './Results';
 
 const SearchResults = props => {     
-    let content =  (
-        <div style={{ background: "#f6f6f6" }}>
+    return  (
+        <div className="bg-light">
             <div className="container pt-3 pb-5">
                 <div className="row">
-                    <div className="col-md-4"><Filter /></div>
-                    <div className="col-md-8"><Results /></div>
+                    <div className="col-md-3"><Filter /></div>
+                    <div className="col-md-9"><Results /></div>
                 </div>
             </div>
         </div>   
     );
-    return content ;  
 }
 
 export default SearchResults

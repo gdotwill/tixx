@@ -1,12 +1,11 @@
 import React from 'react';
 
-const SignUp = props => {    
-    let content = (
+const SignUp = () => {    
+    return (
         <>
             <h1>Sign Up</h1>     
         </>
     )
-    return content;   
 } 
 
 export default SignUp
